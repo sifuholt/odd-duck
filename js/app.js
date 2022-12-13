@@ -67,14 +67,9 @@ function renderImg() {
   img3.src = allImages[3].name;
   img3.alt = `This is an image of ${allImages[img3Index].name}`;
 
-<<<<<<< HEAD
   allImages[img1Index].views++;
   allImages[img2Index].views++;
   allImages[img3Index].views++;
-=======
-
-
->>>>>>> refs/remotes/origin/main
 
 }
 
@@ -111,22 +106,14 @@ function handleShowResults(){
   if(voteCount === 0){
     for(let i = 0; i < allImages.length; i++){
       let liElem = document.createElement('li');
-<<<<<<< HEAD
       liElem.textContent = `${allImages[i].name} was viewed: ${allImages[i].views} & votes: ${allImages[i].votes}`;
-=======
-      liElem.textContent = `${allImages[i].name} was voted: ${allImages[i].votes} times`;
->>>>>>> refs/remotes/origin/main
       resultsList.appendChild(liElem);
     }
     resultsBtn.removeEventListener('click', handleShowResults);
   }
 }
 
-<<<<<<< HEAD
 // executable code "new" calls the image based on info
-=======
-// executable code "new" calls the image based on info 
->>>>>>> refs/remotes/origin/main
 
 let sweep = new Image('sweep', 'png');
 let bag = new Image('bag');
@@ -150,11 +137,7 @@ let wineGlass = new Image('wine-glass');
 
 allImages.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair, cthulhu, dogDuck, dragon, pen, petSweep, scissors, shark, tauntaun, unicorn, waterCan, wineGlass);
 
-<<<<<<< HEAD
 // console.log(allImages);
-=======
-console.log(allImages);
->>>>>>> refs/remotes/origin/main
 
 //
 // function renderImg() {

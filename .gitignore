@@ -152,8 +152,4 @@ $RECYCLE.BIN/
 *.lnk
 
 
-<<<<<<< HEAD
 # End of https://www.gitignore.io/api/node,linux,macos,windows,visualstudiocode
-=======
-# End of https://www.gitignore.io/api/node,linux,macos,windows,visualstudiocode
->>>>>>> refs/remotes/origin/main

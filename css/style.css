@@ -9,7 +9,6 @@ header {
 
 }
 
-<<<<<<< HEAD
 
 h1 {
   background-color: bisque;
@@ -19,15 +18,6 @@ h1 {
   padding: 50px;
   color:blue;
   margin-bottom: 50px;
-=======
-h1 {
-  background-color: bisque;
-  height: 100px;
-  font-size: 80 px;
-  font-family: cursive;
-  padding: 20px;
-  color:blue;
->>>>>>> refs/remotes/origin/main
 
 }
 
@@ -36,19 +26,12 @@ grid-item1{
 }
 
 img {
-<<<<<<< HEAD
   height: 400px;
   width: 400px;
   border-style: solid;
   border-width: 4px;
   border-radius: 60px;
   border: 2px solid aqua;
-=======
-  border-radius: 60px;
-  border: 2px solid aqua;
-  width: 300px;
-  height: 300px;
->>>>>>> refs/remotes/origin/main
 
 }
 
@@ -74,7 +57,6 @@ main {
 }
 
 #show-results-btn {
-<<<<<<< HEAD
   width: max-content;
   font-family: 'exo 2', sans-serif;
   padding: 10px;
@@ -101,8 +83,6 @@ main {
   z-index: -1;
   content: '';
   position: absolute;
-=======
->>>>>>> refs/remotes/origin/main
   display: flex;
   justify-content: space-between;
   color:purple;
@@ -116,7 +96,6 @@ main {
 
 }
 
-<<<<<<< HEAD
 
 
 
@@ -128,6 +107,3 @@ main {
   color:blueviolet;
 
 }
-=======
-#footer {}
->>>>>>> refs/remotes/origin/main

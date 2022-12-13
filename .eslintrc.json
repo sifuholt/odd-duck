@@ -37,8 +37,4 @@
     "semi": [2, "always"],
     "eol-last": "error"
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> refs/remotes/origin/main
