@@ -1,5 +1,8 @@
 'use strict';
 
+
+console.log('hey world, hey!');
+
 // global variables
 
 let voteCount = 25;
@@ -17,6 +20,8 @@ let resultsBtn = document.getElementById('results-btn');
 
 let resultsList = document.getElementById('results-container');
 
+
+let canvasElem = document.getElementById('chart');
 
 
 // constructor function placeholders and parameters unique to each object, in the function are properties that the object will have
@@ -38,7 +43,7 @@ function Image(name, imgExtension = 'jpg') {
 // helper function/utilities let is used to create a variable
 
 function getRandomIndex() {
-  return Math.floor(Math.random()* allImages.length);
+  return Math.floor(Math.random() * allImages.length);
 
 }
 
@@ -48,23 +53,24 @@ function renderImg() {
   let img2Index = getRandomIndex();
   let img3Index = getRandomIndex();
 
-  while(img1Index === img2Index || img2Index === img3Index || img1Index === img3Index) {
+  while (img1Index === img2Index || img2Index === img3Index || img1Index === img3Index) {
+
     img1Index = getRandomIndex();
     img2Index = getRandomIndex();
     img3Index = getRandomIndex();
 
   }
 
-  img1.src = allImages[1].img;
-  img1.title = allImages[1].name;
+  img1.src = allImages[img1Index].img;
+  img1.title = allImages[img1Index].name;
   img1.alt = `This is an image of ${allImages[img1Index].name}`;
 
-  img2.src = allImages[2].img;
-  img2.title = allImages[2].name;
+  img2.src = allImages[img2Index].img;
+  img2.title = allImages[img2Index].name;
   img2.alt = `This is an image of ${allImages[img2Index].name}`;
 
-  img3.src = allImages[3].img;
-  img3.src = allImages[3].name;
+  img3.src = allImages[img3Index].img;
+  img3.title = allImages[img3Index].name;
   img3.alt = `This is an image of ${allImages[img3Index].name}`;
 
   allImages[img1Index].views++;
@@ -73,19 +79,73 @@ function renderImg() {
 
 }
 
+// render chart
 
-// let indexArray = [];
+function renderChart() {
+  let oddNames = [];
+  let oddVotes = [];
+  let oddViews = [];
+
+  for (let i = 0; i < allImages.length; i++) {
+    oddNames.push(allImages[i].name);
+    oddVotes.push(allImages[i].votes);
+    oddViews.push(allImages[i].views);
+
+  }
+
+  let chartObj = {
+    type: 'bar',
+    data: {
+      labels: oddNames,
+      datasets: [{
+        label: '# of Votes',
+        data: oddVotes,
+        borderWidth: 3,
+        backgroundColor: 'pink'
+
+      },
+      {
+        label: "# of Views",
+        data: oddViews,
+        borderWidth: 3,
+        backgroundColor: 'canary'
+      }],
+
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: false
+        }
+      }
+    }
+  };
+  new Chart(canvasElem, chartObj);
+
+}
+let indexArray = [];
+
+function renderImage() {
+
+  while (indexArray.length < 6) {
+    let randomNum = getRandomIndex();
+    if (!indexArray.includes(randomNum)) {
+      indexArray.push(randomNum);
+
+    }
+  }
+}
 
 
 
 // event handlers
 
-function handleClick(event){
+function handleClick(event) {
 
   let imgClicked = event.target.title;
 
-  for(let i = 0; i < allImages.length; i++){
-    if (imgClicked === allImages[i].name){
+  for (let i = 0; i < allImages.length; i++) {
+    if (imgClicked === allImages[i].name) {
       allImages[i].votes++;
 
     }
@@ -95,22 +155,25 @@ function handleClick(event){
 
   renderImg();
 
-  if(voteCount === 0){
+  if (voteCount === 0) {
     imgContainer.removeEventListener('click', handleClick);
     alert('Thank you for your input!');
+    renderChart();
 
   }
+
 }
 
-function handleShowResults(){
-  if(voteCount === 0){
-    for(let i = 0; i < allImages.length; i++){
+function handleShowResults() {
+  if (!voteCount === 0) {
+    for (let i = 0; i < allImages.length; i++) {
       let liElem = document.createElement('li');
       liElem.textContent = `${allImages[i].name} was viewed: ${allImages[i].views} & votes: ${allImages[i].votes}`;
       resultsList.appendChild(liElem);
     }
     resultsBtn.removeEventListener('click', handleShowResults);
   }
+
 }
 
 // executable code "new" calls the image based on info
@@ -139,16 +202,16 @@ allImages.push(sweep, bag, banana, bathroom, boots, breakfast, bubblegum, chair,
 
 // console.log(allImages);
 
-//
+// 
+// 
 // function renderImg() {
-// while(indexArray.length < 25){
+// while(indexArray.length < 3){
 // let randomNum = getRandomIndex();
-// if(indexArray.includes(randomNum)){
+// if(!indexArray.includes(randomNum)){
 // indexArray.push(randomNum);
 // }
 // }
 // }
-//
 
 
 renderImg();
@@ -157,3 +220,56 @@ renderImg();
 imgContainer.addEventListener('click', handleClick);
 resultsBtn.addEventListener('click', handleShowResults);
 
+
+
+
+
+
+// let chartObj = {
+  // type: 'bar',
+  // data: {
+    // labels: [''],
+    // datasets: [{
+      // label: '# of Votes',
+      // data: [],
+      // borderWidth: 3,
+      // backgroundColor: 'pink'
+// 
+    // },
+    // {
+      // label: "# of Votes",
+      // data: [],
+      // borderWidth: 3,
+      // backgroundColor: 'canary'
+    // },
+    // {
+      // label: "# of Names",
+      // data: [],
+      // borderWidth: 3,
+      // backgroundColor: 'fucia',
+    // }]
+// 
+  // },
+  // options: {
+    // scales: {
+      // y: {
+        // beginAtZero: false
+      // }
+    // }
+  // }
+// };
+
+
+
+// render chart
+
+// function renderChart() {
+  // let imgName = [];
+  // let ImgVotes = [];
+  // let imgViews = [];
+// 
+  // for(let i = 0; i < allImages.length; i++){
+// 
+  // }
+  // new Chart(canvasElem, chartObj);
+// }
