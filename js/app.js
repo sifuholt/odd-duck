@@ -67,8 +67,9 @@ function renderImg() {
   img3.src = allImages[3].name;
   img3.alt = `This is an image of ${allImages[img3Index].name}`;
 
-
-
+  allImages[img1Index].views++;
+  allImages[img2Index].views++;
+  allImages[img3Index].views++;
 
 }
 
@@ -105,7 +106,7 @@ function handleShowResults(){
   if(voteCount === 0){
     for(let i = 0; i < allImages.length; i++){
       let liElem = document.createElement('li');
-      liElem.textContent = `${allImages[i].name} was voted: ${allImages[i].votes} times`;
+      liElem.textContent = `${allImages[i].name} was viewed: ${allImages[i].views} & votes: ${allImages[i].votes}`;
       resultsList.appendChild(liElem);
     }
     resultsBtn.removeEventListener('click', handleShowResults);
