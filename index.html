@@ -7,6 +7,8 @@
   <title>Odd Duck</title>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 
 </head>
 <body>
@@ -23,16 +25,21 @@
       <img id="img2" src="" alt="">
       <img id="img3" src="" alt="">
     </section>
+    <div id="results-btn">View Results</div>
     
-    <button id="show-results-btn">Please see the results of your selection below.</button>
 
-    <ul id="results-container"></ul>
+    <section id="results-container">
+      <canvas id="chart"></canvas>
+    </section>
 
   </main>
-
+  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.0.1/dist/chart.umd.min.js"></script>
   <script src="js/app.js" type=""></script>
 
-  <footer id="footer">Team HoltValdezes</footer>
+  <footer id="footer">Team HoltValdezes</script>
+
+    
 
 </body>
 </html>
