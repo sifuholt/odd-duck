@@ -49,17 +49,26 @@ function getRandomIndex() {
 
 function renderImg() {
 
-  let img1Index = getRandomIndex();
-  let img2Index = getRandomIndex();
-  let img3Index = getRandomIndex();
-
-  while (img1Index === img2Index || img2Index === img3Index || img1Index === img3Index) {
-
-    img1Index = getRandomIndex();
-    img2Index = getRandomIndex();
-    img3Index = getRandomIndex();
-
+  while (indexArray.length < 6) {
+    let randomNum = getRandomIndex();
+    if(!indexArray.includes(randomNum)) {
+      indexArray.push(randomNum);
+    }
   }
+
+  indexArray.splice(0, 3);
+
+  let img1Index = indexArray[0];
+  let img2Index = indexArray[1];
+  let img3Index = indexArray[2];
+
+  // while (img1Index === img2Index || img2Index === img3Index || img1Index === img3Index) {
+
+  //   img1Index = getRandomIndex();
+  //   img2Index = getRandomIndex();
+  //   img3Index = getRandomIndex();
+
+  // }
 
   img1.src = allImages[img1Index].img;
   img1.title = allImages[img1Index].name;
@@ -125,17 +134,17 @@ function renderChart() {
 }
 let indexArray = [];
 
-function renderImage() {
-
-  while (indexArray.length < 6) {
-    let randomNum = getRandomIndex();
-    if (!indexArray.includes(randomNum)) {
-      indexArray.push(randomNum);
-
-    }
-  }
-}
-
+// function renderImage() {
+//
+// while (indexArray.length < 6) {
+// let randomNum = getRandomIndex();
+// if (!indexArray.includes(randomNum)) {
+// indexArray.push(randomNum);
+//
+// }
+// }
+// }
+//
 
 
 // event handlers
@@ -226,50 +235,35 @@ resultsBtn.addEventListener('click', handleShowResults);
 
 
 // let chartObj = {
-  // type: 'bar',
-  // data: {
-    // labels: [''],
-    // datasets: [{
-      // label: '# of Votes',
-      // data: [],
-      // borderWidth: 3,
-      // backgroundColor: 'pink'
-// 
-    // },
-    // {
-      // label: "# of Votes",
-      // data: [],
-      // borderWidth: 3,
-      // backgroundColor: 'canary'
-    // },
-    // {
-      // label: "# of Names",
-      // data: [],
-      // borderWidth: 3,
-      // backgroundColor: 'fucia',
-    // }]
-// 
-  // },
-  // options: {
-    // scales: {
-      // y: {
-        // beginAtZero: false
-      // }
-    // }
-  // }
-// };
-
-
-
-// render chart
-
-// function renderChart() {
-  // let imgName = [];
-  // let ImgVotes = [];
-  // let imgViews = [];
-// 
-  // for(let i = 0; i < allImages.length; i++){
-// 
-  // }
-  // new Chart(canvasElem, chartObj);
+// type: 'bar',
+// data: {
+// labels: [''],
+// datasets: [{
+// label: '# of Votes',
+// data: [],
+// borderWidth: 3,
+// backgroundColor: 'pink'
+//
+// },
+// {
+// label: "# of Votes",
+// data: [],
+// borderWidth: 3,
+// backgroundColor: 'canary'
+// },
+// {
+// label: "# of Names",
+// data: [],
+// borderWidth: 3,
+// backgroundColor: 'fucia',
+// }]
+//
+// },
+// options: {
+// scales: {
+// y: {
+// beginAtZero: false
 // }
+// }
+// }
+// };
