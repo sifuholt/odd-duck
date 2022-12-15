@@ -42,6 +42,40 @@ function Image(name, imgExtension = 'jpg') {
 
 // helper function/utilities let is used to create a variable
 
+let getImages = localStorage.getItem('myImages');
+
+let parsedImages = JSON.parse(getImages);
+console.log('parsed>>>', parsedImages);
+if(getImages){
+  allImages = parsedImages;
+
+  if(getImages){
+    for(let i; i < parsedImages.length;)
+      allImages = parsedImages;
+  }else{
+    new Image('sweep', 'png');
+    new Image('bag');
+    new Image('banana');
+    new Image('bathroom');
+    new Image('boots');
+    new Image('breakfast');
+    new Image('bubblegum');
+    new Image('chair');
+    new Image('cthulhu');
+    new Image('dog-duck');
+    new Image('dragon');
+    new Image('pen');
+    new Image('pet-sweep');
+    new Image('scissors');
+    new Image('shark');
+    new Image('tauntaun');
+    new Image('unicorn');
+    new Image('water-can');
+    new Image('wine-glass');
+    new Image('sweep');
+  }
+}
+
 function getRandomIndex() {
   return Math.floor(Math.random() * allImages.length);
 
@@ -169,6 +203,8 @@ function handleClick(event) {
     alert('Thank you for your input!');
     renderChart();
 
+    voteCount
+
   }
 
 }
@@ -229,7 +265,14 @@ renderImg();
 imgContainer.addEventListener('click', handleClick);
 resultsBtn.addEventListener('click', handleShowResults);
 
+// stringify data
 
+let stringifiedImages = JSON.stringify(allImages);
+console.log(stringifiedImages);
+
+// add local storeage
+
+localStorage.setItem('images', stringifiedImages);
 
 
 
@@ -267,3 +310,33 @@ resultsBtn.addEventListener('click', handleShowResults);
 // }
 // }
 // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
